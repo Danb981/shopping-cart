@@ -1,4 +1,4 @@
-import PokeMart from './images/pokemart.png';
+import PokeMart from './images/pokemart2.webp';
 import CartIcon from './images/carticon.svg';
 
 function Nav(){

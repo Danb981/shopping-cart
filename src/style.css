@@ -12,13 +12,14 @@ html, body, #root{
 .home{
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 185px;
+  grid-template-rows: 185px 1fr;
 }
 
 .nav{
   background-color: #5597D4;
   color: #BF4540;
   font-size: 40pt;
+  padding-left: 45px;
   padding-right: 45px;
   display: flex;
   justify-content: space-between;
@@ -41,8 +42,8 @@ html, body, #root{
   color: white;
 }
 
-.nav img{
-  height: 100%;
+.nav > img{
+  height: 90%;
 }
 
 .navControls{
@@ -57,4 +58,30 @@ html, body, #root{
 
 .redSvg:hover{
   filter: invert(96%) sepia(6%) saturate(499%) hue-rotate(175deg) brightness(117%) contrast(100%);
+}
+
+.shopArea{
+  display: grid;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 20px;
+  grid-template-columns: repeat(5, 250px);
+  grid-auto-rows: min-content;
+}
+
+.item{
+  font-family: 'Pixel';
+  aspect-ratio: 2.5/3;
+  border: 3px solid #5597D4;
+  border-radius: 16px;
+  display: grid;
+  justify-items: center;
+}
+
+.item:hover{
+  cursor: pointer;
+}
+
+.item > img{
+  height: 100%;
 }
