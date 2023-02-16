@@ -1,5 +1,7 @@
+import React, { useEffect, useState, useRef } from "react";
 import Nav from './Nav';
 import Item from './Item';
+import Cart from './Cart';
 import Potion from './images/potion.webp';
 import SuperPotion from './images/superpotion.webp';
 import HyperPotion from './images/hyperpotion.webp';
@@ -30,12 +32,19 @@ for(let x = 0; x < shopItems.length; x++){
 }
 
 function Home() {
+  const[cartIsVisible, setCartIsVisible] = useState(true);
+
+  function toggleCartVisible(e){
+    setCartIsVisible(!cartIsVisible);
+  }
+
   return (
     <div className="home">
-      <Nav></Nav>
+      <Nav cartClickEvent={toggleCartVisible}></Nav>
       <div className='shopArea'>
         {shopItemsComponents}
       </div>
+      <Cart cssClass={cartIsVisible ? 'cart' : 'cart collapse'}></Cart>
     </div>
   );
 }

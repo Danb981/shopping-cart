@@ -3,6 +3,10 @@
   src: url('./fonts/Retro\ Gaming.ttf');
 }
 
+html{
+  position: relative;
+}
+
 html, body, #root{
   min-height: 100vh;
   margin: 0;
@@ -68,8 +72,9 @@ html, body, #root{
 .shopArea{
   display: grid;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   padding-top: 20px;
+  padding-bottom: 20px;
   grid-template-columns: repeat(5, 251px);
   grid-auto-rows: 400px;
 }
@@ -124,4 +129,20 @@ html, body, #root{
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
   border: 2px solid black;
+}
+
+.cart{
+  position: absolute;
+  top: 185px;
+  right: 0;
+  width: 20%;
+  height: calc(100% - 185px);
+  background-color:#5597D4;
+  transition: width 1.5s;
+
+  display: grid;
+}
+
+.collapse{
+  width: 0;
 }

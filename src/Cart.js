@@ -1,6 +1,6 @@
-function Cart(){
+function Cart(props){
   return(
-    <div className='cart'>
+    <div className={props.cssClass}>
       <h1>Cart</h1>
     </div>
   )
