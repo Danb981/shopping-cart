@@ -24,27 +24,46 @@ const shopItems = [{name: 'Potion', description: 'Heals 20 HP', price: 300, imag
 {name: 'Awakening', description: 'Cures sleep', price: 300, image: Awakening},
 {name: 'Paralyze Heal', description: 'Cures paralysis', price: 300, image: ParalyzeHeal}];
 
-let shopItemsComponents = [];
-
-for(let x = 0; x < shopItems.length; x++){
-  const shopItem = shopItems[x];
-  shopItemsComponents.push(<Item key={'item' + x} info={shopItem}></Item>)
-}
-
 function Home() {
+  const[items, setItems] = useState([]);
+  const[cart, setCart] = useState([]);
+  const cartRef = useRef({});
+  cartRef.current = cart;
   const[cartIsVisible, setCartIsVisible] = useState(true);
 
   function toggleCartVisible(e){
     setCartIsVisible(!cartIsVisible);
   }
 
+  function addToCart(name, quantity, price){
+    for(let x = 0; x < cartRef.current.length; x++){ //check if item already in cart
+      if(cartRef.current[x].itemName === name){
+        let currentItem = structuredClone(cartRef.current[x]);
+        currentItem.itemQuantity = currentItem.itemQuantity + quantity > 99 ? 99 : currentItem.itemQuantity + quantity;
+        setCart(cartRef.current.slice(0, x).concat(currentItem).concat(cartRef.current.slice(x + 1)));
+        return;
+      }
+    } 
+    setCart(cartRef.current.concat({itemName: name, itemQuantity: quantity, unitPrice: price}));
+  }
+
+  useEffect(() => {
+    let loadItems = [];
+    for(let x = 0; x < shopItems.length; x++){
+      const shopItem = shopItems[x];
+      loadItems.push(<Item key={'item' + x} info={shopItem} addToCart={addToCart}></Item>)
+    }
+    setItems(loadItems);
+  }, []);
+
   return (
     <div className="home">
       <Nav cartClickEvent={toggleCartVisible}></Nav>
       <div className='shopArea'>
-        {shopItemsComponents}
+        {items}
       </div>
       <Cart cssClass={cartIsVisible ? 'cart' : 'cart collapse'}></Cart>
+      {console.log(cart)}
     </div>
   );
 }

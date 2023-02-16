@@ -5,6 +5,7 @@
 
 html{
   position: relative;
+  overflow-x: hidden;
 }
 
 html, body, #root{
@@ -139,10 +140,10 @@ html, body, #root{
   height: calc(100% - 185px);
   background-color:#5597D4;
   transition: width 1.5s;
-
   display: grid;
 }
 
 .collapse{
   width: 0;
 }
+

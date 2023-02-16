@@ -21,6 +21,13 @@ function Item(props){
     }
   }
 
+  function preAddToCart(e){
+    if(quantity > 0){
+      props.addToCart(props.info.name, quantity, props.info.price);
+      setQuantity(0);
+    }
+  }
+
   return(
     <div className='item'>
       <img src={props.info.image}></img>
@@ -33,7 +40,7 @@ function Item(props){
           <input type='text' value={quantity} onChange={updateQuantity}></input>
           <button onClick={incrementQuantity}>+</button>
         </span>
-        <button className='addToCartBtn'>Add to Cart</button>
+        <button className='addToCartBtn' onClick={preAddToCart}>Add to Cart</button>
       </div>
     </div>
   )
