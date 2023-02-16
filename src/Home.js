@@ -22,21 +22,19 @@ const shopItems = [{name: 'Potion', description: 'Heals 20 HP', price: 300, imag
 {name: 'Awakening', description: 'Cures sleep', price: 300, image: Awakening},
 {name: 'Paralyze Heal', description: 'Cures paralysis', price: 300, image: ParalyzeHeal}];
 
+let shopItemsComponents = [];
+
+for(let x = 0; x < shopItems.length; x++){
+  const shopItem = shopItems[x];
+  shopItemsComponents.push(<Item key={'item' + x} info={shopItem}></Item>)
+}
+
 function Home() {
   return (
     <div className="home">
       <Nav></Nav>
       <div className='shopArea'>
-        <Item info={shopItems[0]}></Item>
-        <Item info={shopItems[1]}></Item>
-        <Item info={shopItems[2]}></Item>
-        <Item info={shopItems[3]}></Item>
-        <Item info={shopItems[4]}></Item>
-        <Item info={shopItems[5]}></Item>
-        <Item info={shopItems[6]}></Item>
-        <Item info={shopItems[7]}></Item>
-        <Item info={shopItems[8]}></Item>
-        <Item info={shopItems[9]}></Item>
+        {shopItemsComponents}
       </div>
     </div>
   );
