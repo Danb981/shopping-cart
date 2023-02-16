@@ -133,17 +133,39 @@ html, body, #root{
 }
 
 .cart{
+  font-family: 'Pixel';
   position: absolute;
   top: 185px;
   right: 0;
   width: 20%;
-  height: calc(100% - 185px);
+  min-height: calc(100% - 185px);
   background-color:#5597D4;
   transition: width 1.5s;
   display: grid;
+  justify-items: center;
+  grid-auto-rows: 75px;
+  grid-auto-columns: 100%;
 }
 
 .collapse{
+  border: 0px solid #5597D4;
   width: 0;
 }
 
+.cart > *{
+  transition: opacity 4s;
+}
+
+.collapse > *{
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.cartItem{
+  display: flex;
+  align-items: center;
+}
+
+.cartItem > img{
+  height: 100%;
+}

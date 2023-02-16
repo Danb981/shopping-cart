@@ -23,7 +23,7 @@ function Item(props){
 
   function preAddToCart(e){
     if(quantity > 0){
-      props.addToCart(props.info.name, quantity, props.info.price);
+      props.addToCart(props.info.name, quantity, props.info.price, props.info.image);
       setQuantity(0);
     }
   }

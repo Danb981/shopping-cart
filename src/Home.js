@@ -35,16 +35,16 @@ function Home() {
     setCartIsVisible(!cartIsVisible);
   }
 
-  function addToCart(name, quantity, price){
+  function addToCart(name, quantity, price, image){
     for(let x = 0; x < cartRef.current.length; x++){ //check if item already in cart
       if(cartRef.current[x].itemName === name){
         let currentItem = structuredClone(cartRef.current[x]);
-        currentItem.itemQuantity = currentItem.itemQuantity + quantity > 99 ? 99 : currentItem.itemQuantity + quantity;
+        currentItem.itemQuantity = currentItem.itemQuantity + quantity > 99 ? 99 : currentItem.itemQuantity + quantity; //dont let quantity exceed 99
         setCart(cartRef.current.slice(0, x).concat(currentItem).concat(cartRef.current.slice(x + 1)));
         return;
       }
     } 
-    setCart(cartRef.current.concat({itemName: name, itemQuantity: quantity, unitPrice: price}));
+    setCart(cartRef.current.concat({itemName: name, itemQuantity: quantity, unitPrice: price, itemImage: image}));
   }
 
   useEffect(() => {
@@ -62,7 +62,7 @@ function Home() {
       <div className='shopArea'>
         {items}
       </div>
-      <Cart cssClass={cartIsVisible ? 'cart' : 'cart collapse'}></Cart>
+      <Cart visible={cartIsVisible} cartItems={cart}></Cart>
       {console.log(cart)}
     </div>
   );
