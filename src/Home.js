@@ -12,6 +12,16 @@ import BurnHeal from './images/burnheal.webp';
 import IceHeal from './images/iceheal.webp';
 import Awakening from './images/awakening.webp';
 import ParalyzeHeal from './images/paralyzeheal.webp';
+import PokeBall from './images/pokeball.webp';
+import GreatBall from './images/greatball.webp';
+import UltraBall from './images/ultraball.webp';
+import XAttack from './images/xattack.webp';
+import XDefend from './images/xdefend.webp';
+import XSpAttack from './images/xspecialattack.webp';
+import XSpDefend from './images/xspecialdefend.webp';
+import XSpeed from './images/xspeed.png';
+import XAccuracy from './images/xaccuracy.png';
+
 
 const shopItems = [{name: 'Potion', description: 'Heals 20 HP', price: 300, image: Potion},
 {name: 'Super Potion', description: 'Heals 50 HP', price: 700, image: SuperPotion},
@@ -22,20 +32,32 @@ const shopItems = [{name: 'Potion', description: 'Heals 20 HP', price: 300, imag
 {name: 'Burn Heal', description: 'Cures burn', price: 300, image: BurnHeal},
 {name: 'Ice Heal', description: 'Cures frozen', price: 300, image: IceHeal},
 {name: 'Awakening', description: 'Cures sleep', price: 300, image: Awakening},
-{name: 'Paralyze Heal', description: 'Cures paralysis', price: 300, image: ParalyzeHeal}];
+{name: 'Paralyze Heal', description: 'Cures paralysis', price: 300, image: ParalyzeHeal},
+{name: 'Poke Ball', description: 'Ball with a x1 catch modifier', price: 200, image: PokeBall},
+{name: 'Great Ball', description: 'Ball with a x1.5 catch modifier', price: 600, image: GreatBall},
+{name: 'Ultra Ball', description: 'Ball with a x2 catch modifier', price: 800, image: UltraBall},
+{name: 'X Attack', description: "Raises a Pokemon's attack stat for one battle", price: 500, image: XAttack},
+{name: 'X Defend', description: "Raises a Pokemon's defence stat for one battle", price: 550, image: XDefend},
+{name: 'X Sp. Attack', description: "Raises a Pokemon's special attack stat for one battle", price: 1000, image: XSpAttack},
+{name: 'X Sp. Defend', description: "Raises a Pokemon's special defence stat for one battle", price: 2000, image: XSpDefend},
+{name: 'X Speed', description: "Raises a Pokemon's speed stat for one battle", price: 1000, image: XSpeed},
+{name: 'X Accuracy', description: "Raises a Pokemon's accuracy stat for one battle", price: 1000, image: XAccuracy}];
 
 function Home() {
   const[items, setItems] = useState([]);
   const[cart, setCart] = useState([]);
   const cartRef = useRef({});
   cartRef.current = cart;
-  const[cartIsVisible, setCartIsVisible] = useState(true);
+  const[cartIsVisible, setCartIsVisible] = useState(false);
 
   function toggleCartVisible(e){
     setCartIsVisible(!cartIsVisible);
   }
 
   function addToCart(name, quantity, price, image){
+    if(!cartIsVisible){
+      toggleCartVisible();
+    }
     for(let x = 0; x < cartRef.current.length; x++){ //check if item already in cart
       if(cartRef.current[x].itemName === name){
         let currentItem = structuredClone(cartRef.current[x]);
@@ -59,10 +81,12 @@ function Home() {
   return (
     <div className="home">
       <Nav cartClickEvent={toggleCartVisible}></Nav>
-      <div className='shopArea'>
-        {items}
+      <div className='mainArea'>
+        <div className='shopArea'>
+          {items}
+        </div>
+        <Cart visible={cartIsVisible} cartItems={cart}></Cart>
       </div>
-      <Cart visible={cartIsVisible} cartItems={cart}></Cart>
       {console.log(cart)}
     </div>
   );
