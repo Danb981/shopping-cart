@@ -1,9 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CartItem from './CartItem';
 
 function Cart(props){
   const[cartItems, setCartItems] = useState([]);
   const[subtotal, setSubtotal] = useState(0);
+  const navigate = useNavigate();
+
+  function goToCheckout(e){
+    navigate('/checkout', {state: props.cartItems});
+  }
 
   useEffect(() => {
     let tempSubtotal = 0;
@@ -21,6 +28,7 @@ function Cart(props){
       <u><h1>Cart</h1></u>
       {cartItems}
       <u><h1>Subtotal: ¥{subtotal}</h1></u>
+      {cartItems.length > 0 ? <button onClick={goToCheckout}>Proceed to checkout</button> : null}
     </div>
   )
 }

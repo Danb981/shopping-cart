@@ -81,13 +81,12 @@ function Home() {
   return (
     <div className="home">
       <Nav cartClickEvent={toggleCartVisible}></Nav>
-      <div className='mainArea'>
+      <div className='homeArea'>
         <div className='shopArea'>
           {items}
         </div>
         <Cart visible={cartIsVisible} cartItems={cart}></Cart>
       </div>
-      {console.log(cart)}
     </div>
   );
 }
