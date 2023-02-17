@@ -51,11 +51,26 @@ html, body, #root{
 }
 
 .navControls{
-  height: 166.5px;
-  width: 171.9px;
+  position: relative;
+  height: 167px;
+  width: 172px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.navControls .cartCount{
+  pointer-events: none;
+  font-family: 'Pixel';
+  text-align: center;
+  color: white;
+  position: absolute;
+  z-index: 2;
+  width: 93.65px;
+  font-size: 36px;
+  text-align: center;
+  top: 9px;
+  right: -5px;
 }
 
 .navControls > img{
@@ -68,6 +83,10 @@ html, body, #root{
 
 .redSvg:hover{
   filter: invert(96%) sepia(6%) saturate(499%) hue-rotate(175deg) brightness(117%) contrast(100%);
+}
+
+.redSvg:hover + h3{
+  color: #BF4540;
 }
 
 .homeArea{
@@ -194,5 +213,70 @@ html, body, #root{
 }
 
 .cartItem > img{
+  height: 100%;
+}
+
+.checkout{
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 185px 1fr;
+}
+
+.checkoutArea{
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: 75%;
+  grid-template-rows: auto;
+  grid-auto-rows: 150px;
+  justify-content: center;
+}
+
+.checkoutItem{
+  font-size: 18pt;
+  font-family: 'Pixel';
+  border-top: 4px solid #5597D4;
+  border-left: 4px solid #5597D4;
+  border-right: 4px solid #5597D4;
+  padding-right: 20px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: min-content 1fr auto;
+}
+
+.checkoutItem:nth-of-type(1){
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.checkoutItem > img{
+  height: 100%;
+}
+
+.checkoutArea > h1{
+  font-size: 56pt;
+  font-family: 'Pixel';
+  text-align: center;
+}
+
+.checkoutArea > button{
+  font-family: 'Pixel';
+  font-size: 36pt;
+  border: 5px solid #5597D4;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkoutArea > button:hover{
+  cursor: pointer;
+  background-color: #BF4540;
+  color: #6cade9;
+  transition: color 0.25s, background-color 0.75s;
+}
+
+.checkoutArea > button > img{
   height: 100%;
 }

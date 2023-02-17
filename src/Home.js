@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import Nav from './Nav';
 import Item from './Item';
 import Cart from './Cart';
@@ -44,6 +45,7 @@ const shopItems = [{name: 'Potion', description: 'Heals 20 HP', price: 300, imag
 {name: 'X Accuracy', description: "Raises a Pokemon's accuracy stat for one battle", price: 1000, image: XAccuracy}];
 
 function Home() {
+  const location = useLocation();
   const[items, setItems] = useState([]);
   const[cart, setCart] = useState([]);
   const cartRef = useRef({});
@@ -54,10 +56,17 @@ function Home() {
     setCartIsVisible(!cartIsVisible);
   }
 
-  function addToCart(name, quantity, price, image){
-    if(!cartIsVisible){
-      toggleCartVisible();
+  function loadCart(items){
+    let cartItems = [];
+    for(let x = 0; x < items.length; x++){
+      let newItem = {itemName: items[x].itemName, itemQuantity: items[x].itemQuantity, 
+        unitPrice: items[x].unitPrice, itemImage: items[x].itemImage};
+      cartItems.push(newItem);
     }
+    setCart(cartItems);
+  }
+
+  function addToCart(name, quantity, price, image){
     for(let x = 0; x < cartRef.current.length; x++){ //check if item already in cart
       if(cartRef.current[x].itemName === name){
         let currentItem = structuredClone(cartRef.current[x]);
@@ -76,11 +85,14 @@ function Home() {
       loadItems.push(<Item key={'item' + x} info={shopItem} addToCart={addToCart}></Item>)
     }
     setItems(loadItems);
+    if(location.state){
+      loadCart(location.state);
+    }
   }, []);
 
   return (
     <div className="home">
-      <Nav cartClickEvent={toggleCartVisible}></Nav>
+      <Nav cartClickEvent={toggleCartVisible} cartCount={cart.length}></Nav>
       <div className='homeArea'>
         <div className='shopArea'>
           {items}
