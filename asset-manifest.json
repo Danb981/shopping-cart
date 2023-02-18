@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ff898b6a.css",
+    "main.js": "/static/js/main.93ba747d.js",
+    "static/media/Retro Gaming.ttf": "/static/media/Retro Gaming.c1a52a602585b2d6baf8.ttf",
+    "static/media/pokemart2.webp": "/static/media/pokemart2.c1265f29a4d82adb571c.webp",
+    "index.html": "/index.html",
+    "static/media/carticon.svg": "/static/media/carticon.92ef1eb8f6760643f59e59cdee8425e2.svg",
+    "static/media/ultraball.webp": "/static/media/ultraball.4227a30bbf9226fc2339.webp",
+    "static/media/xdefend.webp": "/static/media/xdefend.c05dca5444688434a74e.webp",
+    "static/media/greatball.webp": "/static/media/greatball.8a68f48d70b5a82cdc6c.webp",
+    "static/media/xspecialdefend.webp": "/static/media/xspecialdefend.523de6191e6268ee810a.webp",
+    "static/media/fullrestore.webp": "/static/media/fullrestore.9bddedbddf1338a6b968.webp",
+    "static/media/maxpotion.webp": "/static/media/maxpotion.c6feef48f7ab32a2075e.webp",
+    "static/media/superpotion.webp": "/static/media/superpotion.494b9266a2b873bdab0c.webp",
+    "static/media/xattack.webp": "/static/media/xattack.d47334452b9321a44134.webp",
+    "static/media/hyperpotion.webp": "/static/media/hyperpotion.6692057d6d40c650c58d.webp",
+    "static/media/potion.webp": "/static/media/potion.fa65dbcfad7f9f48af7c.webp",
+    "static/media/xspecialattack.webp": "/static/media/xspecialattack.ba9a51c2893555063ceb.webp",
+    "static/media/awakening.webp": "/static/media/awakening.931b8383e7b1e3475551.webp",
+    "static/media/iceheal.webp": "/static/media/iceheal.63ca15b9ec35e2c0295f.webp",
+    "static/media/pokeball.webp": "/static/media/pokeball.4dce267d86203ebe24f3.webp",
+    "static/media/antidote.webp": "/static/media/antidote.bb52a686db51090581bf.webp",
+    "static/media/burnheal.webp": "/static/media/burnheal.e0922073ac66b38f6465.webp",
+    "static/media/paralyzeheal.webp": "/static/media/paralyzeheal.0f2ba64a1832a31a4290.webp",
+    "main.ff898b6a.css.map": "/static/css/main.ff898b6a.css.map",
+    "main.93ba747d.js.map": "/static/js/main.93ba747d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff898b6a.css",
+    "static/js/main.93ba747d.js"
+  ]
+}
