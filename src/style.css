@@ -21,6 +21,9 @@ html, body, #root{
 }
 
 .nav{
+  position: sticky;
+  min-width: 1135px;
+  top: 0;
   background-color: #5597D4;
   color: #BF4540;
   font-size: 40pt;
@@ -158,11 +161,12 @@ html, body, #root{
 }
 
 .cart{
-  font-family: 'Pixel';
+  position: sticky;
   top: 185px;
   right: 0;
+  font-family: 'Pixel';
   width: 500px;
-  min-height: calc(100% - 185px);
+  height: calc(100vh - 185px);
   background-color:#5597D4;
   transition: width 1.5s;
   display: grid;
@@ -278,5 +282,48 @@ html, body, #root{
 }
 
 .checkoutArea > button > img{
+  height: 100%;
+}
+
+.orderConfirmation{
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 185px 1fr;
+}
+
+.orderConfirmationArea{
+  display: grid;
+  padding-top: 20px;
+  justify-content: center;
+  grid-template-rows: min-content;
+  grid-auto-rows: 150px;
+  grid-template-columns: 75%;
+}
+
+.orderConfirmationArea > h1, .orderConfirmationArea > h2{
+  font-size: 42pt;
+  font-family: 'Pixel';
+  text-align: center;
+}
+
+.orderConfirmationArea > button{
+  font-family: 'Pixel';
+  font-size: 36pt;
+  border: 5px solid #5597D4;
+  border-radius: 32px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.orderConfirmationArea > button:hover{
+  cursor: pointer;
+  background-color: #BF4540;
+  color: #6cade9;
+  transition: color 0.25s, background-color 0.75s;
+}
+
+.orderConfirmationArea > button > img{
   height: 100%;
 }

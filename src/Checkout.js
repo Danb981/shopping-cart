@@ -16,6 +16,10 @@ function Checkout(props){
     navigate('/', {state: cart});
   }
 
+  function goToOrderConfirmation(e){
+    navigate('/orderconfirmation', {state: cart});
+  }
+
   useEffect(() =>{
     setCart(location.state);
   },[]);
@@ -36,7 +40,7 @@ function Checkout(props){
 
   return(
     <div className='checkout'>
-      <Nav goHome={goHome}></Nav>
+    <Nav goHome={goHome}></Nav>
       <div className='checkoutArea'>
         <h1><u>Checkout</u></h1>
         <div className='checkoutItem'>
@@ -50,7 +54,7 @@ function Checkout(props){
           <span></span>
           <h1>Total: ¥{subtotal}</h1>
         </div>
-        <button onClick={() => alert('test')}><img src={Bike}></img>Complete Order<img src={Bike}></img></button>
+        <button onClick={goToOrderConfirmation}><img src={Bike}></img>Complete Order<img src={Bike}></img></button>
       </div>
     </div>
   )
